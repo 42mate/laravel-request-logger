@@ -24,7 +24,7 @@ class ResponseLogger
      */
     protected $formats = [
         "combined"  =>'{remote-addr} - {remote-user} [{date}] "{method} {url} HTTP/{http-version}" {status} {content-length} "{referer}" "{user-agent}"',
-        "common"    =>'{remote-addr} - {remote-user} [{date}] "{method} {url} HTTP/{http-version}" {status} {content-length}',
+        "common"    =>'[ IP: {remote-addr} ] - [ DATE: {date} ] - [ METHOD: {method} ] - [ URL: {url} ] - [ HTTP/{http-version} ] - [ STATUS: {status} ] - [ REQUEST: {body} ] - [ RESPONSE: {content}]',
         "dev"       =>'{method} {url} {status} {response-time} ms - {content-length}',
         "short"     =>'{remote-addr} {remote-user} {method} {url} HTTP/{http-version} {status} {content-length} - {response-time} ms',
         "tiny"      =>'{method} {url} {status} {content-length} - {response-time} ms'

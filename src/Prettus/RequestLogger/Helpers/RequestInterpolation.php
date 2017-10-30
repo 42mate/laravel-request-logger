@@ -51,7 +51,7 @@ class RequestInterpolation extends BaseInterpolation {
             "getQueryString",
             "getUser",
             "referer",
-            "getContent"
+            "all"
         ],camel_case($variable));
 
         $server_var = str_replace([
@@ -73,7 +73,10 @@ class RequestInterpolation extends BaseInterpolation {
         ], strtoupper(str_replace("-","_", $variable)) );
 
         if( method_exists($this->request, $method) ) {
-            return $this->request->$method();
+            if ($method === 'url') {
+                return $this->request->$method();
+            }
+            return json_encode($this->request->$method());
         } elseif( isset($_SERVER[$server_var]) ) {
             return $this->request->server($server_var);
         } else {
