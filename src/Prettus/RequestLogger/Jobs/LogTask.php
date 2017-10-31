@@ -2,11 +2,10 @@
 
 namespace Prettus\RequestLogger\Jobs;
 
-use App\Jobs\Job;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class LogTask extends Job implements ShouldQueue
+class LogTask implements ShouldQueue
 {
 
     protected $request;
